@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cpu-monitor
-        image: flask-server:1.0
+        image: jishumj786/flask:1.0
         resources:
           requests:
             cpu: "100m"
