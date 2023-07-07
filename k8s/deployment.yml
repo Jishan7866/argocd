@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-monitor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cpu-monitor
+  template:
+    metadata:
+      labels:
+        app: cpu-monitor
+    spec:
+      containers:
+      - name: cpu-monitor
+        image: flask-server:1.0
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "1Gi"
+          limits:
+            cpu: "250m"
+            memory: "1.5Gi"
+        ports:
+        - containerPort: 5000
